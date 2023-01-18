@@ -33,3 +33,29 @@ static void Menu() {
 
     inicio(multiplier * time, typeCronometro);
 }
+static void inicio(int time, int typeCrono) {
+
+    if (typeCrono == 1) {
+        int typeCrono2 = 0;
+        while (time != typeCrono2) {
+            Console.Clear();
+            typeCrono2++;
+            Console.WriteLine($"\n\n\t{typeCrono2}\n\n");
+            Thread.Sleep(1000);
+        }
+        Console.WriteLine("TIME IS UP! PRESS ANY KEY!");
+        Console.ReadKey();
+        Menu();
+    }
+    else {
+        while (time != 0) {
+            Console.Clear();
+            time--;
+            Console.WriteLine($"\n\n\t{time}\n\n");
+            Thread.Sleep(1000);
+        }
+        Console.WriteLine("TIME IS UP! PRESS ANY KEY!");
+        Console.ReadKey();
+        Menu();
+    }
+}

@@ -9,53 +9,20 @@ static void Menu() {
     Console.Clear();
 
     Console.WriteLine("\nCRONOMETRO DIGITAL!\n");
-    Console.Write("\n\nInforme o tempo que deseja cronometrar: ");
-    int timeMenu = int.Parse(Console.ReadLine());
-    Console.WriteLine("\nVocê deseja cronometrar de qual forma ?");
+    Console.Write("\nS = Segundo => 10s = 10 segundos ");
+    Console.Write("\nM = Minuto => 1m = 1 minuto");
+    Console.Write("\n0 = Sair\n");
+    Console.Write("\nQuanto tempo deseja contar?  ");
+    string data = Console.ReadLine().ToLower();
+    Console.WriteLine("\nDeseja usar o cronometro de forma Crescente ou Decrescente? ");
     Console.WriteLine("1 - Crescente");
-    Console.WriteLine("2 - decrescente");
-    Console.Write("\nEscolha uma das opções numeros acima: ");
-    int tipoCrono = int.Parse(Console.ReadLine());
+    Console.WriteLine("2 - Decrescente");
+    Console.Write("\nDigite a opção numerica informada acima : ");
+    int typeCronometro = int.Parse(Console.ReadLine());
+
+
+    int time = int.Parse(data.Substring(0, data.Length - 1));
+    char type = char.Parse(data.Substring(data.Length - 1, 1));
+   
+
     
-
-    inicio(timeMenu, tipoCrono);
-}
-static void inicio(int time, int tipoCronmetro) {
-
-    if (tipoCronmetro == 1) {
-
-        int time2 = 0;
-
-        while (time2 <= time) {
-
-            Console.Clear();
-            time2++;
-            Console.WriteLine($"\n\n\t{time2}\n\n");
-            Thread.Sleep(1000);
-            if (time2 == 20) {
-                Console.Clear();
-                Console.WriteLine("\n\n\tTIME IS UP!!!\n\n\n");
-                Console.WriteLine("\n\nO CRONOMETRO ZEROU! CLIQUE EM QUALQUER TECLA PARA VOLTAR AO MENU PRINCIPAL.");
-                Console.ReadKey();
-                Menu();
-            }
-        }
-
-    }
-    else {
-        while (time != 0) {
-
-            Console.Clear();
-            time--;
-            Console.WriteLine($"\n\n\t{time}\n\n");
-            Thread.Sleep(1000);
-            if (time == 0) {
-                Console.Clear();
-                Console.WriteLine("\n\n\tTIME IS UP!!!\n\n\n");
-                Console.WriteLine("\n\nO CRONOMETRO ZEROU! CLIQUE EM QUALQUER TECLA PARA VOLTAR AO MENU PRINCIPAL.");
-                Console.ReadKey();
-                Menu();
-            }
-        }
-    }
-}
